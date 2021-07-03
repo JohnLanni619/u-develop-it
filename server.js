@@ -1,6 +1,7 @@
-const mysql = require("mysql2");
+const db = require('./db/connection');
 const express = require('express');
 const inputCheck = require('./utils/inputCheck');
+const apiRoutes = require('./routes/apiRoutes');
 
 const PORT = process.env.PORT || 3001;
 const app = express();
@@ -8,16 +9,7 @@ const app = express();
 // Express middleware
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
-
-// Connect to database
-const db = mysql.createConnection({
-  host: 'localhost',
-  // Your MySQL username,
-  user: 'root',
-  // Your MySQL password
-  password: 'Stark590127!',
-  database: 'election'
-});
+app.use('/api', apiRoutes);
 
 // Get all candidates and their party affiliation
 app.get('/api/candidates', (req, res) => {
