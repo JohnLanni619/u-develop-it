@@ -1,10 +1,5 @@
-<<<<<<< HEAD
-INSERT INTO candidates
-  (first_name, last_name, industry_connected)
-=======
 INSERT INTO voters
   (first_name, last_name, email)
->>>>>>> develop
 VALUES
   ('James', 'Fraser', 'jf@goldenbough.edu'),
   ('Jack', 'London', 'jlondon@ualaska.edu'),
